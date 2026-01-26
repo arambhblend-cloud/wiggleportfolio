@@ -47,3 +47,46 @@ document.addEventListener("click", (event) => {
     window.location.href = href;
   }, 700);
 });
+
+const mediaViewer = document.querySelector(".service-media__viewer");
+if (mediaViewer) {
+  const video = mediaViewer.querySelector(".service-media__video");
+  const prevBtn = mediaViewer.querySelector(".media-nav--prev");
+  const nextBtn = mediaViewer.querySelector(".media-nav--next");
+  if (video) {
+    let sources = [];
+    const data = mediaViewer.getAttribute("data-videos");
+    if (data) {
+      try {
+        sources = JSON.parse(data);
+      } catch (error) {
+        sources = [];
+      }
+    }
+    if (!sources.length) {
+      const src = video.getAttribute("src");
+      if (src) sources = [src];
+    }
+    let index = 0;
+    const updateVideo = () => {
+      video.src = sources[index];
+      video.load();
+      video.play().catch(() => {});
+    };
+    const canCycle = sources.length > 1;
+    if (!canCycle) {
+      prevBtn?.setAttribute("disabled", "");
+      nextBtn?.setAttribute("disabled", "");
+    }
+    prevBtn?.addEventListener("click", () => {
+      if (!sources.length) return;
+      index = (index - 1 + sources.length) % sources.length;
+      updateVideo();
+    });
+    nextBtn?.addEventListener("click", () => {
+      if (!sources.length) return;
+      index = (index + 1) % sources.length;
+      updateVideo();
+    });
+  }
+}

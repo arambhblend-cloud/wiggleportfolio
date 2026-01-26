@@ -12,7 +12,7 @@
     <header class="hero">
         <div class="topbar">
             <a class="btn btn--ghost" href="https://wa.me/918877810455" target="_blank" rel="noopener">Contact</a>
-            <a class="btn btn--ghost" href="#work">Work</a>
+            <a class="btn btn--ghost" href="#service">Service</a>
         </div>
         <p class="brand brand--top" data-text="Wiggle">Wiggle</p>
         <div class="container hero__content">
@@ -38,44 +38,66 @@
             <h3>Boost your content with seamless edits, maximize views and drive amazing growth.</h3>
             <div class="stats">
                 <div class="stat">
-                    <p class="stat__value">2+</p>
-                    <p class="stat__label">Total views generated</p>
+                    <p class="stat__value">We use </p>
+                    <p class="stat__label stat__label--icon">
+                        <img class="stat__icon" src="ai%20image.webp" alt="AI" />
+                        <span>AI</span>
+                    </p>
                 </div>
                 <div class="stat">
-                    <p class="stat__value">20%</p>
-                    <p class="stat__label">growth</p>
+                    <p class="stat__value stat__value--icon">
+                        <img class="stat__icon" src="after%20effect%20image.jpg" alt="After Effects" />
+                        <span>After Effect</span>
+                    </p>
+                    <p class="stat__value stat__value--icon">
+                        <img class="stat__icon" src="pro%20image.png" alt="Premiere Pro" />
+                        <span>Premiere Pro</span>
+                    </p>
+                </div>
+                <div class="stat">
+                    <p class="stat__value stat__value--icon">
+                        <img class="stat__icon" src="photoshop.jpg" alt="Photoshop" />
+                        <span>Photoshop</span>
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="work" id="work">
+    <section class="work" id="service">
         <div class="container">
-            <p class="eyebrow">Work</p>
-            <h3>Explore our video editing work and projects</h3>
+            <p class="eyebrow">Service</p>
+            <h3>Explore our video services and deliverables</h3>
             <div class="work__carousel">
-                <div class="thumb thumb--muted"></div>
-                <div class="thumb thumb--main">
-                    <span class="play">PLAY</span>
-                    <p>Featured edit</p>
-                </div>
-                <div class="thumb thumb--muted"></div>
+                <a class="service-card" href="#video-editing">
+                    <h4 class="service-title">Video Editing</h4>
+                    <div class="thumb thumb--main thumb--image thumb--video"></div>
+                </a>
+                <a class="service-card" href="#web-development">
+                    <h4 class="service-title">Web Development</h4>
+                    <div class="thumb thumb--main thumb--image thumb--web"></div>
+                </a>
             </div>
         </div>
     </section>
 
-    <section class="process">
-        <div class="container process__grid">
-            <div class="process__image"></div>
-            <div class="process__content">
-                <p class="eyebrow">Process</p>
-                <h3>How our video editing service works for you</h3>
-                <ol class="steps">
-                    <li><span>01</span>Submit request <small>Share your video needs and project details.</small></li>
-                    <li><span>02</span>Video editing <small>We edit and refine to perfection.</small></li>
-                    <li><span>03</span>Final delivery <small>Receive the final video with all adjustments.</small></li>
-                </ol>
+    <section class="service-media" id="video-editing">
+        <p class="eyebrow service-media__label">Preview</p>
+        <div class="container">
+            <div class="service-media__viewer" data-videos='["3d%20parallax%20of%20cri_1.mp4"]'>
+                <button class="media-nav media-nav--prev" type="button" aria-label="Previous video">❰</button>
+                <video class="service-media__video" src="3d%20parallax%20of%20cri_1.mp4" controls playsinline
+                    preload="metadata"></video>
+                <button class="media-nav media-nav--next" type="button" aria-label="Next video">❱</button>
             </div>
+        </div>
+    </section>
+
+    <section class="service-detail" id="web-development">
+        <div class="container">
+            <p class="eyebrow">Web Development</p>
+            <h3>Modern, fast websites designed to convert.</h3>
+            <div class="service-detail__media"></div>
         </div>
     </section>
 
@@ -86,9 +108,7 @@
             <div class="contact__actions">
                 <a class="btn btn--primary" href="https://wa.me/918877810455" target="_blank" rel="noopener">WhatsApp
                     us</a>
-                <a class="btn btn--ghost"
-                    href="https://mail.google.com/mail/?view=cm&fs=1&to=arabhblend@gmail.com"
-                    target="_blank" rel="noopener">Email: arabhblend@gmail.com</a>
+                <a class="btn btn--ghost" href="mailto:arabhblend@gmail.com">Email: arabhblend@gmail.com</a>
             </div>
         </div>
     </section>
@@ -104,7 +124,7 @@
             <div class="faq__list">
                 <details open>
                     <summary>What services do you offer?</summary>
-                    <p>We provide video editing, content strategy, social optimization, and creative direction.</p>
+                    <p>We provide editing, content strategy, social optimization, and creative direction.</p>
                 </details>
                 <details>
                     <summary>How long does it take to complete a project?</summary>
