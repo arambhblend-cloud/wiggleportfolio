@@ -1,12 +1,12 @@
 :root {
   --bg: #0b0b0b;
-  --white: #232323;
+  --white: #454545;
   --text: #dcd9d9;
   --muted: #00f2ff;
   --accent: #00f7ff;
   --accent-soft: rgba(0, 0, 0, 0.892);
-  --accent-glow: 0 0 10px rgba(0, 0, 0, 0.55);
-  --sky-text-glow: 0 0 6px rgba(0, 0, 0, 0.45),
+  --accent-glow: 0 0 10px rgba(8, 8, 8, 0.55);
+  --sky-text-glow: 0 0 6px rgba(6, 235, 231, 0.622),
     0 0 16px rgba(0, 0, 0, 0.35),
     0 0 28px rgba(0, 0, 0, 0.25);
   --white-glow: 0 0 12px rgba(0, 0, 0, 0.8), 0 0 24px rgba(0, 0, 0, 0.923);
@@ -125,18 +125,19 @@ body {
 .brand {
   font-weight: 800;
   letter-spacing: 1px;
-  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
   margin: 0 0 10px;
-  color: var(--accent);
+  color: #7cc8ff;
   -webkit-text-stroke: 0.8px rgba(0, 0, 0, 0.6);
   text-stroke: 0.8px rgba(0, 0, 0, 0.6);
-  text-shadow: 0 0 1px rgba(0, 0, 0, 0.45), 0 0 10px rgba(0, 255, 247, 0.7),
-    0 0 22px rgba(0, 255, 247, 0.45);
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.45), 0 0 10px rgba(124, 200, 255, 0.7),
+    0 0 22px rgba(124, 200, 255, 0.45);
+  position: relative;
 }
 
 .brand--top {
   position: absolute;
-  top: 24px;
+  top: 16px;
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
@@ -145,6 +146,36 @@ body {
   line-height: 1;
   --underline-offset: 6px;
   --underline-height: 2px;
+}
+
+.brand__letter {
+  display: inline-block;
+  text-shadow: inherit;
+  animation: brand-twinkle-letter 3.6s ease-in-out infinite;
+}
+
+.brand__letter:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.brand__letter:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.brand__letter:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.brand__letter:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.brand__letter:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+.brand__letter:nth-child(6) {
+  animation-delay: 1s;
 }
 
 
@@ -238,7 +269,7 @@ body {
   position: absolute;
   inset: -30% 10% auto;
   height: 220px;
-  background: radial-gradient(circle, rgba(124, 200, 255, 0.6), transparent 60%);
+  background: radial-gradient(circle, rgba(2, 46, 77, 0.6), transparent 60%);
   filter: blur(10px);
   opacity: 0.9;
 }
@@ -248,7 +279,7 @@ body {
   position: absolute;
   inset: auto -10% -30% 10%;
   height: 200px;
-  background: radial-gradient(circle, rgba(124, 200, 255, 0.4), transparent 60%);
+  background: radial-gradient(circle, rgba(2, 30, 69, 0.4), transparent 60%);
   filter: blur(12px);
 }
 
@@ -262,6 +293,11 @@ body {
   color: var(--muted);
   text-shadow: var(--sky-text-glow);
   margin: 0;
+}
+
+.glow-card__text {
+  color: #000;
+  text-shadow: none;
 }
 
 .eyebrow {
@@ -609,6 +645,67 @@ body {
   align-items: center;
   gap: 16px;
   flex-wrap: wrap;
+}
+
+.contact__actions .btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact__actions .btn::after {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -40%;
+  width: 40%;
+  height: 140%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 45%,
+    rgba(255, 255, 255, 0.55) 50%,
+    rgba(255, 255, 255, 0.18) 55%,
+    transparent 100%
+  );
+  transform: skewX(-20deg) translateX(-120%);
+  animation: light-sweep-button 3.5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.contact__actions .btn--ghost::after {
+  animation-delay: 0.4s;
+}
+
+@keyframes light-sweep-button {
+  0% {
+    transform: skewX(-20deg) translateX(-120%);
+  }
+  100% {
+    transform: skewX(-20deg) translateX(260%);
+  }
+}
+
+@keyframes brand-twinkle-letter {
+  0%,
+  100% {
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.45), 0 0 10px rgba(124, 200, 255, 0.7),
+      0 0 22px rgba(124, 200, 255, 0.45);
+    filter: drop-shadow(0 0 6px rgba(124, 200, 255, 0.35));
+    transform: scale(1);
+  }
+  45% {
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 0 0 16px rgba(124, 200, 255, 0.9),
+      0 0 34px rgba(124, 200, 255, 0.7);
+    filter: drop-shadow(0 0 10px rgba(124, 200, 255, 0.65));
+    transform: scale(1.04);
+  }
+  60% {
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.45), 0 0 12px rgba(124, 200, 255, 0.75),
+      0 0 26px rgba(124, 200, 255, 0.5);
+    filter: drop-shadow(0 0 8px rgba(124, 200, 255, 0.5));
+    transform: scale(1.01);
+  }
 }
 
 .contact__email {

@@ -21,31 +21,23 @@ document.addEventListener("pointerdown", (event) => {
   });
 });
 
+document.addEventListener("pointerdown", (event) => {
+  const link = event.target.closest("a.btn, button.btn");
+  if (!link) return;
+  link.classList.remove("btn-pop");
+  void link.offsetWidth;
+  link.classList.add("btn-pop");
+});
+
 document.addEventListener("click", (event) => {
   const link = event.target.closest("a.btn");
   if (!link) return;
   const href = link.getAttribute("href");
-  if (!href) return;
+  if (!href || !href.startsWith("#")) return;
 
   event.preventDefault();
-  link.classList.remove("btn-pop");
-  void link.offsetWidth;
-  link.classList.add("btn-pop");
-
-  setTimeout(() => {
-    if (href.startsWith("#")) {
-      const target = document.querySelector(href);
-      target?.scrollIntoView({ behavior: "smooth" });
-      return;
-    }
-
-    if (link.target === "_blank") {
-      window.open(href, "_blank", "noopener");
-      return;
-    }
-
-    window.location.href = href;
-  }, 700);
+  const target = document.querySelector(href);
+  target?.scrollIntoView({ behavior: "smooth" });
 });
 
 const mediaViewer = document.querySelector(".service-media__viewer");
