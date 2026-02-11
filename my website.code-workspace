@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../../ai agent"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "my website"
+	}
+}
